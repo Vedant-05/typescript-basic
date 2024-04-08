@@ -5,11 +5,15 @@ interface User {
   createdAt: Date;
 }
 
-//using pick to get types
+//using pick to get selected types
 
 type UserProfile = Pick<User, "name" | "email">;
 
-const displayUserProfile = (user: UserProfile) => {
+//using Partial to make all types optional
+
+type UserProfileOptional = Partial<UserProfile>;
+
+const displayUserProfile = (user: UserProfileOptional) => {
   console.log(`Name: ${user.name}, Email: ${user.email}`);
 };
 
